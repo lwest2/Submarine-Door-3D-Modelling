@@ -38,13 +38,22 @@ public class Interact : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.E)) // if key down E
             {
+                // m_anim.enabled = true;
                 m_anim.Play("Door"); // play door animation
 
+                
+                
                 if(!m_audioS.isPlaying) // if audio is not playing
                 {
                     StartCoroutine(SoundOut()); // start coroutine
                 }
             }
+
+            /*else if (Input.GetKeyUp(KeyCode.E))
+            {
+                m_anim.enabled = false;
+            }
+            */
         }
     }
 
