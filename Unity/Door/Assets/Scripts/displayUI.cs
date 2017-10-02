@@ -26,8 +26,8 @@ public class displayUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_myText = GameObject.Find("Text").GetComponent<Text>();
-        m_myText.color = Color.clear;
+        m_myText = GameObject.Find("Text").GetComponent<Text>(); // get object text
+        m_myText.color = Color.clear; // set colour to clear so text does not show
 
     }
 
@@ -35,12 +35,12 @@ public class displayUI : MonoBehaviour
     void Update()
     {
 
-        FadeText();
+        FadeText(); // fade text
     }
 
     private void OnMouseOver()
     {
-        m_displayInfo = true;
+        m_displayInfo = true; 
     }
 
     private void OnMouseExit()
@@ -50,20 +50,20 @@ public class displayUI : MonoBehaviour
 
     void FadeText()
     {
-        m_distance = Vector3.Distance(transform.position, m_target.position);
+        m_distance = Vector3.Distance(transform.position, m_target.position); // calculate distance betweeen wheel and player
 
-        if (m_distance < 1.5f)
+        if (m_distance < 1.5f) // if distance is smaller than 1.5f
         {
-            if (m_displayInfo)
+            if (m_displayInfo) // if display info is true
             {
-                m_myText.text = m_myString;
-                m_myText.color = Color.Lerp(m_myText.color, Color.white, m_fadeTime * Time.deltaTime);
+                m_myText.text = m_myString; // set text to string
+                m_myText.color = Color.Lerp(m_myText.color, Color.white, m_fadeTime * Time.deltaTime); // show text
             }
         }
 
-        else if (!m_displayInfo)
+        else if (!m_displayInfo) // if display info is false
         {
-            m_myText.color = Color.Lerp(m_myText.color, Color.clear, m_fadeTime * Time.deltaTime);       
+            m_myText.color = Color.Lerp(m_myText.color, Color.clear, m_fadeTime * Time.deltaTime); // make invinsible    
         }
       
     }

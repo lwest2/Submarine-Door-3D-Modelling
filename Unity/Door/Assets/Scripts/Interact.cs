@@ -5,43 +5,44 @@ using UnityEngine.UI;
 
 public class Interact : MonoBehaviour {
 
-    private float m_distance;
+    private float m_distance; // distance from wheel to player
 
     [SerializeField]
-    private AudioClip audioclip;
+    private AudioClip m_audioclip; // audio clip open
 
     [SerializeField]
-    private AudioClip audioclip_close;
+    private AudioClip m_audioclip_close; // audio clip closle
 
-    private AudioSource audio;
+    private AudioSource m_audioS; // audio source
     
     [SerializeField]
-    private Transform m_target;
+    private Transform m_target; // player
 
     [SerializeField]
-    private Animator anim;
+    private Animator m_anim; // animator 
 
     
     // Use this for initialization
     void Start () {
-        anim = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        m_anim = GetComponent<Animator>();
+        m_audioS = GetComponent<AudioSource>();
+        m_target = GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        m_distance = Vector3.Distance(transform.position, m_target.position);
+        m_distance = Vector3.Distance(transform.position, m_target.position); // distance frorm wheel to player
 
-        if (m_distance < 1.5f)
+        if (m_distance < 1.5f) // if distance is less than 1.5f
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E)) // if key down E
             {
-                anim.Play("Door");
+                m_anim.Play("Door"); // play door animation
 
-                if(!audio.isPlaying)
+                if(!m_audioS.isPlaying) // if audio is not playing
                 {
-                    StartCoroutine(SoundOut());
+                    StartCoroutine(SoundOut()); // start coroutine
                 }
             }
         }
@@ -50,9 +51,9 @@ public class Interact : MonoBehaviour {
     IEnumerator SoundOut()
     {
         yield return new WaitForSeconds(6);
-        audio.PlayOneShot(audioclip);
+        m_audioS.PlayOneShot(m_audioclip); // play open sound clip
         yield return new WaitForSeconds(14);
-        audio.PlayOneShot(audioclip_close);
+        m_audioS.PlayOneShot(m_audioclip_close); // play close sound clip
 
     }
 }

@@ -1280,10 +1280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26ec658c1356c744b158cad43efd848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioclip: {fileID: 8300000, guid: 717b28bad6d135a4daac8e47f37292b8, type: 3}
-  audioclip_close: {fileID: 8300000, guid: 71fba0b375b51174a97f9490917a76cd, type: 3}
+  m_audioclip: {fileID: 8300000, guid: 717b28bad6d135a4daac8e47f37292b8, type: 3}
+  m_audioclip_close: {fileID: 8300000, guid: 71fba0b375b51174a97f9490917a76cd, type: 3}
   m_target: {fileID: 1427810451}
-  anim: {fileID: 1596455836}
+  m_anim: {fileID: 1596455836}
 --- !u!82 &1596455842
 AudioSource:
   m_ObjectHideFlags: 0
