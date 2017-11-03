@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\displayUI.cs" />
     <Compile Include="Assets\Scripts\Interact.cs" />
+    <Compile Include="Assets\Scripts\OpenDoor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

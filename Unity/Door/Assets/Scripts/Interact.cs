@@ -21,11 +21,12 @@ public class Interact : MonoBehaviour {
     [SerializeField]
     private Animator m_anim; // animator 
 
-    
+    public static bool hasFinished = false; //handleturn finished
+
+
     // Use this for initialization
     void Start () {
         m_anim = GetComponent<Animator>();
-        m_audioS = GetComponent<AudioSource>();
         m_target = GetComponent<Transform>();
 	}
 	
@@ -38,31 +39,25 @@ public class Interact : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.E)) // if key down E
             {
-                // m_anim.enabled = true;
-                m_anim.Play("Door"); // play door animation
-
+                //m_anim.enabled = true;
+                m_anim.Play("Handle_turning"); // play door animation
+                hasFinished = true;
                 
-                
-                if(!m_audioS.isPlaying) // if audio is not playing
-                {
-                    StartCoroutine(SoundOut()); // start coroutine
-                }
             }
 
-            /*else if (Input.GetKeyUp(KeyCode.E))
+            /*
+            else if (Input.GetKeyUp(KeyCode.E))
             {
                 m_anim.enabled = false;
             }
             */
+            
+       
+           
         }
+        
+        
     }
 
-    IEnumerator SoundOut()
-    {
-        yield return new WaitForSeconds(6);
-        m_audioS.PlayOneShot(m_audioclip); // play open sound clip
-        yield return new WaitForSeconds(14);
-        m_audioS.PlayOneShot(m_audioclip_close); // play close sound clip
 
-    }
 }

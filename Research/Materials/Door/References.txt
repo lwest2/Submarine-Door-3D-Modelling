@@ -1,3 +1,3 @@
 References:
-Material_01 - https://opengameart.org/sites/default/files/metall005-new.png
-Material_02 - https://static5.depositphotos.com/1035886/453/i/950/depositphotos_4538143-stock-photo-wood-background-with-nails.jpg
+material_01 - http://texturelib.com/Textures/metal/bare/metal_bare_0002_02_preview.jpg
+material_02 - http://www.publicdomainpictures.net/pictures/170000/nahled/rust-textured-background.jpg
