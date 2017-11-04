@@ -28,6 +28,7 @@ public class Interact : MonoBehaviour {
     void Start () {
         m_anim = GetComponent<Animator>();
         m_target = GetComponent<Transform>();
+        m_audioS = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -42,7 +43,7 @@ public class Interact : MonoBehaviour {
                 //m_anim.enabled = true;
                 m_anim.Play("Handle_turning"); // play door animation
                 hasFinished = true;
-                
+                m_audioS.Play();
             }
 
             /*
