@@ -13,8 +13,12 @@ public class Interact : MonoBehaviour {
     [SerializeField]
     private AudioClip m_audioclip_close; // audio clip closle
 
+    [SerializeField]
     private AudioSource m_audioS; // audio source
-    
+
+    [SerializeField]
+    private AudioSource m_audioSclose; // audio source close
+
     [SerializeField]
     private Transform m_target; // player
 
@@ -28,7 +32,6 @@ public class Interact : MonoBehaviour {
     void Start () {
         m_anim = GetComponent<Animator>();
         m_target = GetComponent<Transform>();
-        m_audioS = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -41,9 +44,8 @@ public class Interact : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.E)) // if key down E
             {
                 //m_anim.enabled = true;
-                m_anim.Play("Handle_turning"); // play door animation
-                hasFinished = true;
-                m_audioS.Play();
+                m_anim.Play("Door");
+                StartCoroutine("PlaySound");
             }
 
             /*
@@ -58,6 +60,16 @@ public class Interact : MonoBehaviour {
         }
         
         
+    }
+
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSecondsRealtime(2.5f);
+        if(!m_audioS.isPlaying)
+            m_audioS.Play();
+        yield return new WaitForSecondsRealtime(10.5f);
+        if (!m_audioSclose.isPlaying)
+            m_audioSclose.Play();
     }
 
 
